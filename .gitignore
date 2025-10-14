@@ -27,6 +27,8 @@ apps/mobile/.env.local
 *.mobileprovision
 *.orig.*
 web-build/
+ios/
+android/
 
 # macOS
 .DS_Store
@@ -36,6 +38,7 @@ web-build/
 .vscode/
 .idea/
 .claude/
+.mcp.json
 *.swp
 *.swo
 *~
