@@ -4,6 +4,7 @@ Docs/
 # Dependencies
 node_modules/
 .pnpm-store/
+pnpm-lock.yaml
 
 # Build outputs
 dist/
@@ -16,6 +17,10 @@ build/
 .env*.local
 apps/server/.env.local
 apps/mobile/.env.local
+
+# Docker
+docker-compose.override.yml
+docker-compose.local.yml
 
 # Expo / React Native
 .expo/

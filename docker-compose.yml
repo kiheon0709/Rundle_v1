@@ -6,15 +6,16 @@ services:
     container_name: rundle-postgres
     restart: unless-stopped
     ports:
-      - '5432:5432'
+      - '${POSTGRES_PORT:-5432}:5432'
     environment:
-      POSTGRES_DB: rundle_dev
-      POSTGRES_USER: rundle
-      POSTGRES_PASSWORD: rundle_local_password
+      POSTGRES_DB: ${POSTGRES_DB:-rundle_dev}
+      POSTGRES_USER: ${POSTGRES_USER:-rundle}
+      # POSTGRES_PASSWORD는 docker-compose.local.yml에서 설정해야 합니다
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U rundle -d rundle_dev']
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-rundle} -d ${POSTGRES_DB:-rundle_dev}']
       interval: 10s
       timeout: 5s
       retries: 5

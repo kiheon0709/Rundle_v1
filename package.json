@@ -4,20 +4,24 @@
   "private": true,
   "description": "Rundle - Run the Route, Own the Moment",
   "scripts": {
-    "dev:server": "pnpm --filter @rundle/server dev",
-    "dev:mobile": "pnpm --filter @rundle/mobile dev",
+    "dev:server": "npm run dev --workspace=@rundle/server",
+    "dev:mobile": "npm run dev --workspace=@rundle/mobile",
     "build": "turbo run build",
-    "build:server": "pnpm --filter @rundle/server build",
-    "build:mobile": "pnpm --filter @rundle/mobile build",
+    "build:server": "npm run build --workspace=@rundle/server",
+    "build:mobile": "npm run build --workspace=@rundle/mobile",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules",
-    "db:migrate": "pnpm --filter @rundle/server db:migrate",
-    "db:seed": "pnpm --filter @rundle/server db:seed"
+    "db:migrate": "npm run db:migrate --workspace=@rundle/server",
+    "db:seed": "npm run db:seed --workspace=@rundle/server"
   },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
@@ -30,7 +34,6 @@
   },
   "engines": {
     "node": ">=20.0.0",
-    "pnpm": ">=8.0.0"
-  },
-  "packageManager": "pnpm@8.15.0"
+    "npm": ">=8.0.0"
+  }
 }

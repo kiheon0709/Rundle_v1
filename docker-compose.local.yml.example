@@ -1,0 +1,13 @@
+version: '3.8'
+
+# 로컬 개발 전용 설정 예제
+# 이 파일을 복사해서 docker-compose.local.yml로 만들고 비밀번호를 설정하세요.
+# cp docker-compose.local.yml.example docker-compose.local.yml
+#
+# 사용법: docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
+
+services:
+  postgres:
+    environment:
+      # 로컬 개발용 비밀번호를 여기에 설정하세요
+      POSTGRES_PASSWORD: your_local_password_here
